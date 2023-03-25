@@ -1,4 +1,4 @@
-# `Mandelbrot` Sample
+# `Fractal Generator using different maps` Sample
 
 Mandelbrot is an infinitely complex fractal patterning that is derived from a simple formula.  It demonstrates using DPC++ for offloading computations to a GPU (or other devices) and shows how processing time can be optimized and improved with parallelism.
 
