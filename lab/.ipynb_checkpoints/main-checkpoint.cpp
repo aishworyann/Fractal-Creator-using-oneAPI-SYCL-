@@ -3,11 +3,16 @@
 //
 // SPDX-License-Identifier: MIT
 // =============================================================
+//==============================================================
+// Copyright © 2020 Intel Corporation
+//
+// SPDX-License-Identifier: MIT
+// =============================================================
 
 #include <chrono>
 #include <iomanip>
 #include <iostream>
-
+#include <CL/sycl.hpp>
 // dpc_common.hpp can be found in the dev-utilities include folder.
 // e.g., $ONEAPI_ROOT/dev-utilities/<version>/include/dpc_common.hpp
 #include "dpc_common.hpp"
@@ -73,8 +78,8 @@ int main(int argc, char *argv[]) {
   try {
     // Create a queue on the default device. Set SYCL_DEVICE_TYPE environment
     // variable to (CPU|GPU|FPGA|HOST) to change the device.
-    queue q(default_selector{}, dpc_common::exception_handler);
-
+//       dpc_common::exception_handler
+    queue q{sycl::cpu_selector{}};
     // Display the device info.
     ShowDevice(q);
 
@@ -99,3 +104,4 @@ int main(int argc, char *argv[]) {
   cout << "Successfully computed Mandelbrot set.\n";
   return 0;
 }
+
